@@ -24,7 +24,7 @@ struct ContentView: View {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 20, height: 20)
                             .foregroundColor(.blue)
                         Text(item)
                     }
@@ -34,6 +34,22 @@ struct ContentView: View {
                         }) {
                             Image(systemName: "bell")
                         }
+                        .tint(.yellow)
+                        
+                        Button(action: {
+                            print("押した")
+                        }) {
+                            Image(systemName: "trash")
+                        }
+                        .tint(.red)
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button(action: {
+                            print("押した")
+                        }) {
+                            Image(systemName: "gear")
+                        }
+                        .tint(.purple)
                     }
                 }
             }
@@ -45,5 +61,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
