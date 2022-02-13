@@ -20,7 +20,21 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(items,id:\.self) { item in
-                    Text(item)
+                    HStack {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.blue)
+                        Text(item)
+                    }
+                    .swipeActions {
+                        Button(action: {
+                            print("押した")
+                        }) {
+                            Image(systemName: "bell")
+                        }
+                    }
                 }
             }
             .navigationTitle("To Do List")
