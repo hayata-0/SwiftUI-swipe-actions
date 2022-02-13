@@ -19,7 +19,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-               
+                ForEach(items,id:\.self) { item in
+                    Text(item)
+                }
             }
             .navigationTitle("To Do List")
         }
